@@ -11,6 +11,9 @@ namespace Challenge.Services.Interfaces
         Task<ServiceResponse<List<GetContactDto>>> DeleteContact(int id);
         Task<ServiceResponse<List<GetContactDto>>> GetContactByLocation(string location);
         Task<ServiceResponse<GetContactDto>> GetContactByEmailOrPhone(string emailOrPhone);
+        ServiceResponse<bool> NewEmailIsValid(string email, int id = 0);
+        ServiceResponse<bool> NewPhoneIsValid(string phone, int id = 0);
+        ServiceResponse<bool> NewWorkPhoneIsValid(string phone, int id = 0);
 
     }
 }

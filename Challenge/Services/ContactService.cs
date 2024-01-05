@@ -168,5 +168,52 @@ namespace Challenge.Services
             }
             return serviceResponse;
         }
+
+        public ServiceResponse<bool> NewEmailIsValid(string email, int id = 0)
+        {
+            var serviceResponse = new ServiceResponse<bool>();
+            try
+            {
+                serviceResponse.Data = _dataContext.Contacts.Any(c => c.Email == email && (id == 0 || c.Id != id));
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Success = false;
+                serviceResponse.Message = ex.Message;
+            }            
+            return serviceResponse;
+        }
+
+        public ServiceResponse<bool> NewPhoneIsValid(string phone, int id = 0)
+        {
+            var serviceResponse = new ServiceResponse<bool>();
+
+            try
+            {
+                serviceResponse.Data = _dataContext.Contacts.Any(c => c.Phone == phone && (id == 0 || c.Id != id));
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Success = false;
+                serviceResponse.Message = ex.Message;
+            }
+            return serviceResponse;
+        }
+
+        public ServiceResponse<bool> NewWorkPhoneIsValid(string workPhone, int id = 0)
+        {
+            var serviceResponse = new ServiceResponse<bool>();
+            
+            try
+            {
+                serviceResponse.Data = _dataContext.Contacts.Any(c => c.WorkPhone == workPhone && (id == 0 || c.Id != id));
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Success = false;
+                serviceResponse.Message = ex.Message;
+            }
+            return serviceResponse;
+        }
     }
 }

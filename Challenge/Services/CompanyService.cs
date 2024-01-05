@@ -31,5 +31,21 @@ namespace Challenge.Services
             }
             return serviceResponse;
         }
+
+        public ServiceResponse<bool> CompanyExists(int id)
+        {
+            var serviceResponse = new ServiceResponse<bool>();
+            try
+            {
+                serviceResponse.Data = _dataContext.Companies.Any(c => c.Id == id);
+            }
+            catch(Exception ex)
+            {
+                serviceResponse.Success = false;
+                serviceResponse.Message = ex.Message;
+            }
+
+            return serviceResponse;
+        } 
     }
 }

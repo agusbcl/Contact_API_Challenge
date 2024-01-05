@@ -1,7 +1,6 @@
 ﻿using Challenge.Dtos.ContactDtos;
 using Challenge.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System.Reflection.Metadata.Ecma335;
 
 namespace Challenge.Controllers
 {
@@ -29,7 +28,7 @@ namespace Challenge.Controllers
             return Ok(await _contactService.AddContact(newContact));
         }
 
-        [HttpGet("GetContactById{id}")]
+        [HttpGet("GetContactById/{id}")]
 
         public async Task<ActionResult<ServiceResponse<GetContactDto>>> GetContactById(int id)
         {
