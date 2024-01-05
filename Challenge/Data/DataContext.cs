@@ -1,5 +1,4 @@
 ﻿using Challenge.Data.Configutarion;
-using Microsoft.EntityFrameworkCore;
 
 namespace Challenge.Data
 {
